@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-4">
                 <h4>Do you have pets?</h4>
-                <asp:RadioButtonList ID="rbPets" runat="server">
+                <asp:RadioButtonList ID="rbPets" runat="server" >
                     <asp:ListItem> Yes</asp:ListItem>
                     <asp:ListItem> No</asp:ListItem>
                 </asp:RadioButtonList>

@@ -17,7 +17,7 @@
         <br />
         <div class="row">
             <div class="col-md-4"><asp:TextBox ID="tbPrice" runat="server" placeholder="Price"></asp:TextBox></div>
-            <div class="col-md-4"><asp:DropDownList ToolTip="Room Description" ID="DropDownList1" runat="server">
+            <div class="col-md-4"><asp:DropDownList ToolTip="Room Description" ID="DropDownList1" runat="server" CssClass="form-control">
                                     <asp:ListItem>Bedroom</asp:ListItem>
                                     <asp:ListItem>Basement</asp:ListItem>
                                     <asp:ListItem>Attic</asp:ListItem>
