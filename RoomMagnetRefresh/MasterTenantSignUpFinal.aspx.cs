@@ -26,7 +26,7 @@ public partial class _Default : System.Web.UI.Page
 
             System.Data.SqlClient.SqlCommand insertPass = new System.Data.SqlClient.SqlCommand();
             insertPass.Connection = sc;
-            insertPass.CommandText = "Insert into [dbo].[HostPassword] values(@MaxID, @Password, @ModifiedDate, @Email);";
+            insertPass.CommandText = "Insert into [dbo].[TenantPassword] values(@MaxID, @Password, @ModifiedDate, @Email);";
             insertPass.Parameters.Add(new System.Data.SqlClient.SqlParameter("@MaxID", Session["globalID"]));
             insertPass.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Email", tbEmail.Text));
             insertPass.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Password", PasswordHash.HashPassword(tbPassword.Text)));

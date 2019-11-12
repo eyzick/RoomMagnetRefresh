@@ -45,7 +45,15 @@ public class Host
 
     }
 
+    public void setPhoneNumber(string phoneNumber)
+    {
+        this.phoneNumber = phoneNumber;
+    }
 
+    public string getPhoneNumber()
+    {
+        return phoneNumber;
+    }
     public int GetHostID()
     {
         return HostID;
@@ -56,7 +64,7 @@ public class Host
 
     }
 
-    public String GetFirstName(String FirstName)
+    public String GetFirstName()
     {
         return FirstName;
     }
@@ -65,7 +73,7 @@ public class Host
         this.FirstName = FirstName;
     }
 
-    public String GetLastName(String LastName)
+    public String GetLastName()
     {
         return LastName;
     }
@@ -74,7 +82,7 @@ public class Host
         this.LastName = LastName;
     }
 
-    public String GetEmailAddress(String EmailAddress)
+    public String GetEmailAddress()
     {
         return EmailAddress;
     }

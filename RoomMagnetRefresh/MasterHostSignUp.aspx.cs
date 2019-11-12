@@ -14,6 +14,11 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnNext_Click(object sender, EventArgs e)
     {
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        sc.ConnectionString = @"Data Source=aay09edjn65sf6.cpcbbo8ggvx6.us-east-1.rds.amazonaws.com;Initial Catalog=RoomMagnet;Persist Security Info=True;User ID=fahrenheit;Password=cis484fall";
+        sc.Open();
+
         string usertype = "h";
         //Validation
 
@@ -43,8 +48,47 @@ public partial class _Default : System.Web.UI.Page
             tempHost.SetStreet(HttpUtility.HtmlEncode(addressArray[1]));
             tempHost.SetHomeState(ddState.SelectedValue);
             tempHost.SetZip(HttpUtility.HtmlEncode(tbZip.Text));
+            tempHost.setPhoneNumber(HttpUtility.HtmlEncode(tbPhoneNumber.Text));
 
-            // Insert into database and grab ID - put into global ID
+            DateTime now = DateTime.Now;
+            System.Data.SqlClient.SqlCommand insertTest = new System.Data.SqlClient.SqlCommand();
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FirstName", tempHost.GetFirstName()));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@LastName", tempHost.GetLastName()));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Email", "tempemail@gmail.com"));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PhoneNumber", tempHost.getPhoneNumber()));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DOB", tempHost.GetDateOfBirth()));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@HouseNum", tempHost.GetHouseNumber()));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Street", tempHost.GetStreet()));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@City", tempHost.GetCityCounty()));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@State", tempHost.GetHomeState()));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Zip", tempHost.GetZip()));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ModfiedDate", now));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@UserType", usertype));
+            insertTest.Connection = sc;
+
+            insertTest.CommandText = "Insert into [dbo].[RMUser] VALUES (@FirstName," +
+                   "@LastName," +
+                   "@Email," +
+                   "@PhoneNumber," +
+                   "@DOB," +
+                   "@HouseNum," +
+                   "@Street," +
+                   "@City," +
+                   "@State," +
+                   "@Zip," +
+                   "@ModfiedDate," +
+                   "@UserType);";
+            insertTest.ExecuteNonQuery();
+
+            // finding maxID and storing it globally
+            System.Data.SqlClient.SqlCommand maxID = new System.Data.SqlClient.SqlCommand();
+            maxID.Connection = sc;
+
+            maxID.CommandText = "Select MAX(UserID) from [dbo].[RMUser];";
+
+            Session["globalID"] = (Int32)maxID.ExecuteScalar();
+
+            
 
             Response.Redirect("MasterHost2.aspx");
         }

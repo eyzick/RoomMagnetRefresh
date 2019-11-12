@@ -17,7 +17,7 @@
         <br />
         <div class="row">
             <div class="col-md-4"><asp:TextBox ID="tbPrice" runat="server" placeholder="Price"></asp:TextBox></div>
-            <div class="col-md-4"><asp:DropDownList ToolTip="Room Description" ID="DropDownList1" runat="server" CssClass="form-control">
+            <div class="col-md-4"><asp:DropDownList ToolTip="Room Description" ID="ddRoomType" runat="server" CssClass="form-control">
                                     <asp:ListItem>Bedroom</asp:ListItem>
                                     <asp:ListItem>Basement</asp:ListItem>
                                     <asp:ListItem>Attic</asp:ListItem>
@@ -28,7 +28,7 @@
         </div>
         <br />
         <div class="row">
-            <div class="col-md-4"><h4>Need to import pictures here</h4></div>
+            <div class="col-md-4"><asp:FileUpload runat="server" Style="display: block" accept=".png,.jpg,.jpeg" ID="firstUploader"></asp:FileUpload></div>
         </div>
         <div class="row">
             <asp:Button ID="btnList" runat="server" Text="List my property!" OnClick="btnList_Click" />

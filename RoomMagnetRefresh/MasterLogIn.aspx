@@ -27,7 +27,13 @@
         <br />
         <div class="row">
             <div class="col-lg-4"></div>
-            <div class="col-lg-4"><asp:Button ID="btnLogIn" runat="server" Text="Log In" CssClass="form-control" /></div>
+            <div class="col-lg-4"><asp:Button ID="btnLogIn" runat="server" Text="Log In" CssClass="form-control" OnClick="btnLogIn_Click" /></div>
+            <div class="col-lg-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4"><asp:Label ID="Label1" runat="server" Text=""></asp:Label></div>
+            <div class="col-lg-4"></div>
         </div>
     </div>
 </asp:Content>

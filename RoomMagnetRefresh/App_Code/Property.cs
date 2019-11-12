@@ -45,6 +45,25 @@ public class Property
 
     }
 
+    public void setDescription(string description)
+    {
+        this.description = description;
+    }
+
+    public string getDescription()
+    {
+        return description;
+    }
+
+    public void setRoomType(string roomType)
+    {
+        this.roomType = roomType;
+    }
+
+    public string getRoomType()
+    {
+        return roomType;
+    }
    
     public String getHouseNumber()
     {
