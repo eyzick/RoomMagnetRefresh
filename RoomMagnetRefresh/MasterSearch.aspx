@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MasterSearch.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        <div class="container">
+    <%--    <div class="container">
             <div class="row">
                 <br />
 
@@ -109,7 +109,7 @@ map = new google.maps.Map(document.getElementById('map'), {
               </div>
                </div>
         </div>
-     </div>
+     </div>--%>
 </asp:Content>
 
 

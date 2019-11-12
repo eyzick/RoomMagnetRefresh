@@ -272,4 +272,17 @@ public partial class _Default : System.Web.UI.Page
         return error;
 
     }
+
+    protected void btnPopulate_Click(object sender, EventArgs e)
+    {
+        tbFirstName.Text = "Isaac";
+        tbLastName.Text = "Gamble";
+        tbPhoneNumber.Text = "540-256-4839";
+        tbZip.Text = "34377";
+        tbAddress.Text = "100 Candy Cane Lane";
+        tbCity.Text = "Kingsport";
+        ddState.SelectedValue = "TN";
+        tbDOB.Text = "12/03/1997";
+
+    }
 }
