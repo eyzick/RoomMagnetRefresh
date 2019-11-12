@@ -10,7 +10,7 @@
     <div class="row">
         <div class ="col-sm-4"><asp:Label ID="lblFirstNameDash" runat="server" Text="FirstName's Dashboard" CssClass="h2"></asp:Label></div>
         <div class="col-sm-4"></div>
-        <div class ="col-sm-2"><asp:Button ID="btnApplicants" runat="server" Text="View Applicants" /></div>
+        <div class ="col-sm-2"><asp:Button ID="btnApplicants" runat="server" Text="View Applicants"  /></div>
         <div class="col-sm-2"><asp:Button ID="btnLogOut" runat="server" Text="Log Out" /></div>
     </div>
     <br />

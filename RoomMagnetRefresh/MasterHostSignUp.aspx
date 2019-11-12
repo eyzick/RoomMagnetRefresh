@@ -15,20 +15,20 @@
       <br />
 
       <div class="row">
-          <div class="col-md-4"><asp:TextBox ID="tbFirstName" runat="server" placeholder="First Name"></asp:TextBox></div>
-          <div class="col-md-4"><asp:TextBox ID="tbLastName" runat="server" placeholder="Last Name"></asp:TextBox></div>
-          <div class="col-md-3"><asp:TextBox ID="tbDOB" runat="server" placeholder="Date of Birth"></asp:TextBox></div>
-          <div class="col-md-3"><asp:TextBox ID="tbPhoneNumber" runat="server" placeholder="Phone Number"></asp:textbox></div>
+          <div class="col-md-3"><asp:TextBox ID="tbFirstName" runat="server" placeholder="First Name" CssClass="form-control"></asp:TextBox></div>
+          <div class="col-md-3"><asp:TextBox ID="tbLastName" runat="server" placeholder="Last Name" CssClass="form-control"></asp:TextBox></div>
+          <div class="col-md-3"><asp:TextBox ID="tbDOB" runat="server" placeholder="Date of Birth" CssClass="form-control"></asp:TextBox></div>
+          <div class="col-md-3"><asp:TextBox ID="tbPhoneNumber" runat="server" placeholder="Phone Number" CssClass="form-control"></asp:textbox></div>
       </div>
 
       <br />
       <br />
 
       <div class="row">
-          <div class="col-md-4"><asp:TextBox ID="tbAddress" runat="server" placeholder="Home Address"></asp:TextBox></div>
-          <div class="col-md-4"><asp:TextBox ID="tbCity" runat="server" placeholder="City"></asp:TextBox></div>
-          <div class="col-md-2"><asp:DropDownList ID="ddState" runat="server"></asp:DropDownList></div>
-          <div class="col-md-2"><asp:TextBox ID="tbZip" runat="server" placeholder="Zipcode"></asp:TextBox></div>
+          <div class="col-md-3"><asp:TextBox ID="tbAddress" runat="server" placeholder="Home Address" CssClass="form-control"></asp:TextBox></div>
+          <div class="col-md-3"><asp:TextBox ID="tbCity" runat="server" placeholder="City" CssClass="form-control"></asp:TextBox></div>
+          <div class="col-md-3"><asp:DropDownList ID="ddState" runat="server" CssClass="form-control"></asp:DropDownList></div>
+          <div class="col-md-3"><asp:TextBox ID="tbZip" runat="server" placeholder="Zipcode" CssClass="form-control"></asp:TextBox></div>
       </div>
 
       <br />
