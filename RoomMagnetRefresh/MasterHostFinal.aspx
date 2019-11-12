@@ -11,7 +11,7 @@
         <br />
         <br />
         <div class="row">
-            <div class="col-md-6"><asp:TextBox ID="tbEmail" runat="server" placeholder="Email Address"></asp:TextBox></div>
+            <div class="col-md-6"><asp:TextBox ID="tbEmail" runat="server" placeholder="Email Address" CssClass="form-control"></asp:TextBox></div>
             <div class="col-md-6"><asp:TextBox ID="tbEmailConfirm" runat="server" placeholder="Confirm Email"></asp:TextBox></div>
         </div>
         <br />

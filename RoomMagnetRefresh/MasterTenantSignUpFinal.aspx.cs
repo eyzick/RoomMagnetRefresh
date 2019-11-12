@@ -14,17 +14,39 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnNext_Click(object sender, EventArgs e)
     {
+
+
         int validated = validateInformation(HttpUtility.HtmlEncode(tbEmail.Text), HttpUtility.HtmlEncode(tbEmailConfirm.Text), HttpUtility.HtmlEncode(tbPassword.Text), HttpUtility.HtmlEncode(tbPasswordConfirm.Text));
 
         if (validated == 0)
         {
-            // insert stuff into database
+            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+            sc.ConnectionString = @"Data Source=aay09edjn65sf6.cpcbbo8ggvx6.us-east-1.rds.amazonaws.com;Initial Catalog=RoomMagnet;Persist Security Info=True;User ID=fahrenheit;Password=cis484fall";
+            sc.Open();
+
+            System.Data.SqlClient.SqlCommand insertPass = new System.Data.SqlClient.SqlCommand();
+            insertPass.Connection = sc;
+            insertPass.CommandText = "Insert into [dbo].[HostPassword] values(@MaxID, @Password, @ModifiedDate, @Email);";
+            insertPass.Parameters.Add(new System.Data.SqlClient.SqlParameter("@MaxID", Session["globalID"]));
+            insertPass.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Email", tbEmail.Text));
+            insertPass.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Password", PasswordHash.HashPassword(tbPassword.Text)));
+            insertPass.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ModifiedDate", DateTime.Now));
+            insertPass.ExecuteNonQuery();
+
+            // retroactively adds email to the database for that user
+            System.Data.SqlClient.SqlCommand updateEmail = new System.Data.SqlClient.SqlCommand();
+            updateEmail.Connection = sc;
+            updateEmail.CommandText = "update [dbo].[RMUser] set Email = @Email where UserID = @MaxID;";
+
             Response.Redirect("MasterTenantDash.aspx");
         }
+
+        // VALIDATION KEY - 1. Emails do not match 2. Passwords do not match 3. Email not formatted correctly 4. Password not formatted correctly
 
         else if (validated == 1)
         {
             // error messages go here
+            
         }
 
         else if (validated == 2)

@@ -15,8 +15,8 @@
       <br />
 
       <div class="row">
-          <div class="col-md-4"><asp:TextBox ID="tbFirstName" runat="server" placeholder="First Name"></asp:TextBox></div>
-          <div class="col-md-4"><asp:TextBox ID="tbLastName" runat="server" placeholder="Last Name"></asp:TextBox></div>
+          <div class="col-md-3"><asp:TextBox ID="tbFirstName" runat="server" placeholder="First Name"></asp:TextBox></div>
+          <div class="col-md-3"><asp:TextBox ID="tbLastName" runat="server" placeholder="Last Name"></asp:TextBox></div>
           <div class="col-md-3"><asp:TextBox ID="tbDOB" runat="server" placeholder="Date of Birth"></asp:TextBox></div>
           <div class="col-md-3"><asp:TextBox ID="tbPhoneNumber" runat="server" placeholder="Phone Number"></asp:textbox></div>
       </div>
