@@ -21,7 +21,7 @@ public partial class _Default : System.Web.UI.Page
         string usertype = "t";
         //Validation
 
-        int validated = validateInformation(tbFirstName.Text, tbLastName.Text, tbPhoneNumber.Text, tbDOB.Text, tbAddress.Text, tbZip.Text);
+        int validated = validateInformation(tbFirstName.Text, tbLastName.Text, tbPhoneNumber.Text, tbDOB.Text, tbAddress.Text, tbCity.Text, tbZip.Text);
 
 
         if(validated == 0)
@@ -92,27 +92,30 @@ public partial class _Default : System.Web.UI.Page
         // VALIDATION KEY: 1. First Name invald 2. Last Name invalid 3. Phone number invalid 4. Age invalid 5. City invalid 6. Zipcode invalid
         else if (validated == 1)
         {
-            //error message goes here
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('please enter a valid first name');", true);
+
         }
         else if (validated == 2)
         {
-            //error message goes here
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('please enter a valid last name');", true);
+
         }
         else if (validated == 3)
         {
-            //error message goes here
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('please enter a valid phone number');", true);
+
         }
         else if (validated == 4)
         {
-            //error message goes here
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Sorry, your age does not meet the requirements');", true);
         }
         else if (validated == 5)
         {
-            //error message goes here
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('please enter a valid city name');", true);
         }
         else if (validated == 6)
         {
-            //error message goes here
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('please enter a valid Zip Code');", true);
         }
         else
         {
@@ -127,7 +130,7 @@ public partial class _Default : System.Web.UI.Page
 
 
 
-    public int validateInformation(string firstName, string lastName, string phoneNumber, string birthday, string city, string zip)
+    public int validateInformation(string firstName, string lastName, string phoneNumber, string birthday, string street, string city, string zip)
     {
         int error = 0;
         // Name Vaildation
@@ -272,4 +275,5 @@ public partial class _Default : System.Web.UI.Page
         return error;
 
     }
+
 }
