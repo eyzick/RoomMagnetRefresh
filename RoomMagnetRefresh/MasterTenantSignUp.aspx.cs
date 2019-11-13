@@ -4,15 +4,36 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
+
 
 public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        
+    }
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
 
     }
-
     protected void btnNext_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("#step2");
+    }
+    protected void btnNext2_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnprevious_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnPrevious2_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnSubmit_Click(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         sc.ConnectionString = @"Data Source=aay09edjn65sf6.cpcbbo8ggvx6.us-east-1.rds.amazonaws.com;Initial Catalog=RoomMagnet;Persist Security Info=True;User ID=fahrenheit;Password=cis484fall";
@@ -30,11 +51,11 @@ public partial class _Default : System.Web.UI.Page
 
             //splitting up address
             string address = HttpUtility.HtmlEncode(tbAddress.Text);
-            string[] addressArray = new string[2];
-            int count = 2;
+            string[] addressArray = new string[3];
+            int count = 3;
             string[] seperator = { " " };
             string[] strList = address.Split(seperator, count, StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
                 addressArray[i] = strList[i];
 
@@ -45,6 +66,7 @@ public partial class _Default : System.Web.UI.Page
             tempTenant.SetDateOfBirth(HttpUtility.HtmlEncode(tbDOB.Text));
             tempTenant.SetHouseNumber(HttpUtility.HtmlEncode(addressArray[0]));
             tempTenant.SetStreet(HttpUtility.HtmlEncode(addressArray[1]));
+            tempTenant.SetCityCounty(HttpUtility.HtmlEncode(addressArray[2]));
             tempTenant.SetHomeState(ddState.SelectedValue);
             tempTenant.SetZip(HttpUtility.HtmlEncode(tbZip.Text));
 
@@ -209,10 +231,10 @@ public partial class _Default : System.Web.UI.Page
         DateTime bod;
         if (DateTime.TryParse(birthday, out bod) && (!birthday.Contains('-')))
         {
-            String.Format("{0:d/MM/yyyy}", bod);
+            String.Format("{0:d-MM-yyyy}", bod);
             var today = DateTime.Today;
 
-            DateTime bir = DateTime.ParseExact(birthday, "yyyy/MM/dd", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime bir = DateTime.ParseExact(birthday, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
             var age = today.Year - bir.Year;
 
             if (bir.Month > today.Month)
@@ -276,4 +298,10 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
+
+
+    protected void tbFirstName_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }
