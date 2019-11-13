@@ -12,7 +12,7 @@ public class Tenant
     private String FirstName;
     private String LastName;
     private String EmailAddress;
-    private String phoneNumber;
+    private String PhoneNumber;
     private String HouseNumber;
     private String Street;
     private String CityCounty;
@@ -26,11 +26,12 @@ public class Tenant
     {
 
     }
-    public Tenant(String FirstName, String LastName, String EmailAddress, String HouseNumber, String Street, String CityCounty, String HomeState, String Zip, String DateOfBirth, String userType)
+    public Tenant(String FirstName, String LastName, String EmailAddress, String PhoneNumber, String HouseNumber, String Street, String CityCounty, String HomeState, String Zip, String DateOfBirth, String userType)
     {
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.EmailAddress = EmailAddress;
+        this.PhoneNumber = PhoneNumber;
         this.HouseNumber = HouseNumber;
         this.Street = Street;
         this.CityCounty = CityCounty;
@@ -44,11 +45,11 @@ public class Tenant
     }
     public void setPhoneNumber(string phoneNumber)
     {
-        this.phoneNumber = phoneNumber;
+        this.PhoneNumber = phoneNumber;
     }
     public string getPhoneNumber()
     {
-        return phoneNumber;
+        return PhoneNumber;
     }
 
     public string getUserType()

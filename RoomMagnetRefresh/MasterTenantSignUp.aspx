@@ -18,19 +18,26 @@
             padding:16px;	
         }
     </style>
-        <script type="text/javascript">
-           
-      
+    <script type="text/javascript">
+
+
         $(document).ready(function () {
             $('#' + '<%= tbPhoneNumber.ClientID %>').blur(function () {
                 var val = $(this).val();
                 var newvalue = val.replace(/(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
                 $(this).val(newvalue);
             });
-            });
+        });
+
+  $('.btnNext').click(function(){
+  $('.nav-tabs > .active').next('li').find('a').trigger('click');});
+
+  $('.btnPrevious').click(function(){
+  $('.nav-tabs > .active').prev('li').find('a').trigger('click');});
     </script>
        
   <div class="container">
+
           <h1>Create your account</h1>      
       <br /><br />
       <div class="container">
@@ -150,6 +157,8 @@
                   </div>
                   <br /><br /><br />
                   <asp:Button ID="btnNext" runat="server" Text="Next Step" class="btn btn-primary pull-right" OnClick="btnNext_Click" />
+                          <a class="btn btn-primary" >Next</a>
+
               </div>
               <div id="step2" class="tab-pane fade">
                   <h3>Step 2</h3>
@@ -240,7 +249,7 @@
                   </div>
                   <br /><br /><br />
                   <asp:Button ID="btnPrevious2" runat="server" Text="Previous" class="btn btn-primary pull-left" OnClick="btnPrevious2_Click" />
-                  <asp:Button ID="btnSubmit" runat="server" Text="Create Account" class="btn btn-primary pull-right" OnClick="btnSubmit_Click" />
+                  <asp:Button ID="btnSubmit" runat="server" Text="Create Account" class="btn btn-success pull-right" OnClick="btnSubmit_Click" />
 
 
               </div>
@@ -259,4 +268,5 @@
 
 
 </asp:Content>
+
 
