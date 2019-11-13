@@ -63,7 +63,7 @@ public partial class _Default : System.Web.UI.Page
 
             tempTenant.SetFirstName(HttpUtility.HtmlEncode(tbFirstName.Text));
             tempTenant.SetLastName(HttpUtility.HtmlEncode(tbLastName.Text));
-            tempTenant.SetDateOfBirth(HttpUtility.HtmlEncode(tbDOB.Text));
+            tempTenant.SetDateOfBirth(HttpUtility.HtmlEncode(tbDOB.ToString()));
             tempTenant.SetHouseNumber(HttpUtility.HtmlEncode(addressArray[0]));
             tempTenant.SetStreet(HttpUtility.HtmlEncode(addressArray[1]));
             tempTenant.SetCityCounty(HttpUtility.HtmlEncode(addressArray[2]));

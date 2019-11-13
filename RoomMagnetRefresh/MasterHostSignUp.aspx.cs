@@ -49,6 +49,7 @@ public partial class _Default : System.Web.UI.Page
             tempHost.SetHomeState(ddState.SelectedValue);
             tempHost.SetZip(HttpUtility.HtmlEncode(tbZip.Text));
             tempHost.setPhoneNumber(HttpUtility.HtmlEncode(tbPhoneNumber.Text));
+            
 
             DateTime now = DateTime.Now;
             System.Data.SqlClient.SqlCommand insertTest = new System.Data.SqlClient.SqlCommand();
