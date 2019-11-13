@@ -19,7 +19,7 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void btnNext_Click(object sender, EventArgs e)
     {
-        Response.Redirect("#step2");
+        
     }
     protected void btnNext2_Click(object sender, EventArgs e)
     {
@@ -51,11 +51,11 @@ public partial class _Default : System.Web.UI.Page
 
             //splitting up address
             string address = HttpUtility.HtmlEncode(tbAddress.Text);
-            string[] addressArray = new string[3];
-            int count = 3;
+            string[] addressArray = new string[2];
+            int count = 2;
             string[] seperator = { " " };
             string[] strList = address.Split(seperator, count, StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 addressArray[i] = strList[i];
 
@@ -66,10 +66,11 @@ public partial class _Default : System.Web.UI.Page
             tempTenant.SetDateOfBirth(HttpUtility.HtmlEncode(tbDOB.Text));
             tempTenant.SetHouseNumber(HttpUtility.HtmlEncode(addressArray[0]));
             tempTenant.SetStreet(HttpUtility.HtmlEncode(addressArray[1]));
-            tempTenant.SetCityCounty(HttpUtility.HtmlEncode(addressArray[2]));
+            tempTenant.SetCityCounty(HttpUtility.HtmlEncode(tbCity.Text));
             tempTenant.SetHomeState(ddState.SelectedValue);
             tempTenant.SetZip(HttpUtility.HtmlEncode(tbZip.Text));
-
+            tempTenant.setPhoneNumber(HttpUtility.HtmlEncode(tbPhoneNumber.Text));
+            DateTime test = DateTime.Parse(tempTenant.GetDateOfBirth());
             // Insert into database 
             DateTime now = DateTime.Now;
             System.Data.SqlClient.SqlCommand insertTest = new System.Data.SqlClient.SqlCommand();
@@ -77,7 +78,7 @@ public partial class _Default : System.Web.UI.Page
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@LastName", tempTenant.GetLastName()));
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Email", "tempemail@gmail.com"));
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PhoneNumber", tempTenant.getPhoneNumber()));
-            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DOB", tempTenant.GetDateOfBirth()));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DOB", test));
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@HouseNum", tempTenant.GetHouseNumber()));
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Street", tempTenant.GetStreet()));
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@City", tempTenant.GetCityCounty()));
@@ -231,10 +232,10 @@ public partial class _Default : System.Web.UI.Page
         DateTime bod;
         if (DateTime.TryParse(birthday, out bod) && (!birthday.Contains('-')))
         {
-            String.Format("{0:d-MM-yyyy}", bod);
+            String.Format("{0:d/MM/yyyy}", bod);
             var today = DateTime.Today;
 
-            DateTime bir = DateTime.ParseExact(birthday, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime bir = DateTime.ParseExact(birthday, "yyyy/MM/dd", System.Globalization.CultureInfo.InvariantCulture);
             var age = today.Year - bir.Year;
 
             if (bir.Month > today.Month)
@@ -252,12 +253,6 @@ public partial class _Default : System.Web.UI.Page
                 error = 4;
 
             }
-        }
-        else
-        {
-            birthdayValid = false;
-            error = 4;
-
         }
 
         // City validation
