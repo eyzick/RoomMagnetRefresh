@@ -18,7 +18,7 @@ public class Tenant
     private String CityCounty;
     private String HomeState;
     private String Zip;
-    private String DateOfBirth;
+    private DateTime DateOfBirth;
     private string userType;
     
 
@@ -26,7 +26,7 @@ public class Tenant
     {
 
     }
-    public Tenant(String FirstName, String LastName, String EmailAddress, String PhoneNumber, String HouseNumber, String Street, String CityCounty, String HomeState, String Zip, String DateOfBirth, String userType)
+    public Tenant(String FirstName, String LastName, String EmailAddress, String PhoneNumber, String HouseNumber, String Street, String CityCounty, String HomeState, String Zip, DateTime DateOfBirth, String userType)
     {
         this.FirstName = FirstName;
         this.LastName = LastName;
@@ -141,11 +141,11 @@ public class Tenant
         this.Zip = Zip;
 
     }
-    public String GetDateOfBirth()
+    public DateTime GetDateOfBirth()
     {
-        return Zip;
+        return DateOfBirth;
     }
-    public void SetDateOfBirth(String DateOfBirth)
+    public void SetDateOfBirth(DateTime DateOfBirth)
     {
         this.DateOfBirth = DateOfBirth;
 

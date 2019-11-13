@@ -63,22 +63,24 @@ public partial class _Default : System.Web.UI.Page
 
             tempTenant.SetFirstName(HttpUtility.HtmlEncode(tbFirstName.Text));
             tempTenant.SetLastName(HttpUtility.HtmlEncode(tbLastName.Text));
-            tempTenant.SetDateOfBirth(HttpUtility.HtmlEncode(tbDOB.ToString()));
+            DateTime test2 = Convert.ToDateTime(tbDOB.Text);
+            tempTenant.SetDateOfBirth(test2);
             tempTenant.SetHouseNumber(HttpUtility.HtmlEncode(addressArray[0]));
             tempTenant.SetStreet(HttpUtility.HtmlEncode(addressArray[1]));
             tempTenant.SetCityCounty(HttpUtility.HtmlEncode(tbCity.Text));
             tempTenant.SetHomeState(ddState.SelectedValue);
             tempTenant.SetZip(HttpUtility.HtmlEncode(tbZip.Text));
             tempTenant.setPhoneNumber(HttpUtility.HtmlEncode(tbPhoneNumber.Text));
-            DateTime test = DateTime.Parse(tempTenant.GetDateOfBirth());
+            tempTenant.SetEmailAddress(HttpUtility.HtmlEncode(tbEmail.Text));
+            
             // Insert into database 
             DateTime now = DateTime.Now;
             System.Data.SqlClient.SqlCommand insertTest = new System.Data.SqlClient.SqlCommand();
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FirstName", tempTenant.GetFirstName()));
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@LastName", tempTenant.GetLastName()));
-            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Email", "tempemail@gmail.com"));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Email", tempTenant.GetEmailAddress()));
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PhoneNumber", tempTenant.getPhoneNumber()));
-            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DOB", test));
+            insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DOB", tempTenant.GetDateOfBirth()));
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@HouseNum", tempTenant.GetHouseNumber()));
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Street", tempTenant.GetStreet()));
             insertTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@City", tempTenant.GetCityCounty()));
@@ -110,7 +112,7 @@ public partial class _Default : System.Web.UI.Page
 
             Session["globalID"] = (Int32)maxID.ExecuteScalar();
 
-            Response.Redirect("MasterTenantSignUp2.aspx");
+            Response.Redirect("MasterTenantDash.aspx");
         }
         // VALIDATION KEY: 1. First Name invald 2. Last Name invalid 3. Phone number invalid 4. Age invalid 5. City invalid 6. Zipcode invalid
         else if (validated == 1)
@@ -298,5 +300,10 @@ public partial class _Default : System.Web.UI.Page
     protected void tbFirstName_TextChanged(object sender, EventArgs e)
     {
 
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        
     }
 }
