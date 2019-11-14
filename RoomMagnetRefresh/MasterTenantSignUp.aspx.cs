@@ -304,6 +304,32 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        sc.ConnectionString = @"Data Source=aay09edjn65sf6.cpcbbo8ggvx6.us-east-1.rds.amazonaws.com;Initial Catalog=RoomMagnet;Persist Security Info=True;User ID=fahrenheit;Password=cis484fall";
+        sc.Open();
+
+        tbFirstName.Text = "Isaac";
+        tbLastName.Text = "Gamble";
+        tbPhoneNumber.Text = "5402564839";
+        tbAddress.Text = "100 Candy Cane Lane";
+        tbCity.Text = "Harrisonburg";
+        ddState.SelectedValue = "VA";
+        tbZip.Text = "22801";
+        tbPassword.Text = "Password123!";
+        tbPasswordConfirm.Text = "Password123!";
         
+        System.Data.SqlClient.SqlCommand maxID = new System.Data.SqlClient.SqlCommand();
+        maxID.Connection = sc;
+
+        maxID.CommandText = "Select MAX(UserID) from [dbo].[RMUser];";
+
+        int max = (Int32)maxID.ExecuteScalar();
+
+        tbEmail.Text = "gambleisaac@gmail.com" + max;
+        tbEmailConfirm.Text = "gambleisaac@gmail.com" + max;
+
     }
+
+   
 }
