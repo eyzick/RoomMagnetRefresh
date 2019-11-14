@@ -13,6 +13,11 @@ public partial class _Default : System.Web.UI.Page
     {
         
     }
+    protected void lnkLogout_Click(object sender, EventArgs e)
+    {
+        
+       
+    }
     protected void btnSave_Click(object sender, EventArgs e)
     {
 
@@ -229,15 +234,15 @@ public partial class _Default : System.Web.UI.Page
             error = 3;
 
         }
+        
+
         // Birthday Validation
         Boolean birthdayValid = true;
-        DateTime bod;
-        if (DateTime.TryParse(birthday, out bod) && (!birthday.Contains('-')))
-        {
-            String.Format("{0:d/MM/yyyy}", bod);
+        
+            
             var today = DateTime.Today;
+            DateTime bir = DateTime.ParseExact(tbDOB.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
 
-            DateTime bir = DateTime.ParseExact(birthday, "yyyy/MM/dd", System.Globalization.CultureInfo.InvariantCulture);
             var age = today.Year - bir.Year;
 
             if (bir.Month > today.Month)
@@ -255,7 +260,7 @@ public partial class _Default : System.Web.UI.Page
                 error = 4;
 
             }
-        }
+        
 
         // City validation
         Boolean cityValid = true;
@@ -318,7 +323,7 @@ public partial class _Default : System.Web.UI.Page
         tbZip.Text = "22801";
         tbPassword.Text = "Password123!";
         tbPasswordConfirm.Text = "Password123!";
-        
+        tbDOB.Text = DateTime.Today.ToString("1997-12-25");
         System.Data.SqlClient.SqlCommand maxID = new System.Data.SqlClient.SqlCommand();
         maxID.Connection = sc;
 
