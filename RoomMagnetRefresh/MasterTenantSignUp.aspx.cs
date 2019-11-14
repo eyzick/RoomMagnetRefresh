@@ -47,10 +47,10 @@ public partial class _Default : System.Web.UI.Page
         string usertype = "t";
         //Validation
 
-        int validated = validateInformation(tbFirstName.Text, tbLastName.Text, tbPhoneNumber.Text, tbDOB.Text, tbAddress.Text, tbCity.Text, tbZip.Text);
+        int validated = validateInformation(tbFirstName.Text, tbLastName.Text, tbPhoneNumber.Text, tbDOB.Text, tbAddress.Text, tbCity.Text, tbZip.Text,tbEmail.Text,tbPassword.Text);
 
 
-        if(validated == 0)
+        if (validated == 0)
         {
             Tenant tempTenant = new Tenant();
 
@@ -77,7 +77,7 @@ public partial class _Default : System.Web.UI.Page
             tempTenant.SetZip(HttpUtility.HtmlEncode(tbZip.Text));
             tempTenant.setPhoneNumber(HttpUtility.HtmlEncode(tbPhoneNumber.Text));
             tempTenant.SetEmailAddress(HttpUtility.HtmlEncode(tbEmail.Text));
-            
+
             // Insert into database 
             DateTime now = DateTime.Now;
             System.Data.SqlClient.SqlCommand insertTest = new System.Data.SqlClient.SqlCommand();
@@ -147,12 +147,25 @@ public partial class _Default : System.Web.UI.Page
         {
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('please enter a valid Zip Code');", true);
         }
-        else
+        else if (validated == 7)
         {
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('please enter a valid Email Address');", true);
 
         }
-        
-        
+        else if (validated ==8)
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your password must have at least 8 characters');", true);
+        }
+        else if (validated == 9)
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your password cannot have space');", true);
+        }
+        else if (validated == 10)
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your password does not inclueded number, capital letter or special character');", true);
+            
+        }
+
     }
 
 
@@ -160,7 +173,7 @@ public partial class _Default : System.Web.UI.Page
 
 
 
-    public int validateInformation(string firstName, string lastName, string phoneNumber, string birthday, string street, string city, string zip)
+    public int validateInformation(string firstName, string lastName, string phoneNumber, string birthday, string street, string city, string zip, string email, string password)
     {
         int error = 0;
         // Name Vaildation
@@ -296,6 +309,80 @@ public partial class _Default : System.Web.UI.Page
             error = 6;
 
         }
+
+        // Email validation
+        
+        Boolean emailValid = true;
+
+        
+            if (!email.Contains('@'))
+            {
+            emailValid = false;
+            error = 7;
+            }
+            else if (!email.Contains('.'))
+            {
+            emailValid = false;
+            error = 7;
+            }
+
+        Boolean capital = false;
+        Boolean number = false;
+        Boolean special = false;
+        Boolean whiteSpace = true;
+        Boolean minLength = false;
+        Boolean passwordValid = false;
+
+        if (password.Any(char.IsUpper))
+        {
+            capital = true;
+            if (password.Any(char.IsDigit))
+            {
+                number = true;
+                for (int i = 0; i < password.Length; i++)
+                {
+                    if (password[i] == '!' || password[i] == '?' || password[i] == '`' || password[i] == '~' || password[i] == '@' || password[i] == '#' || password[i] == '$' || password[i] == '%' || password[i] == '^' || password[i] == '&' || password[i] == '*' || password[i] == '(' || password[i] == ')' || password[i] == '-' || password[i] == '_' || password[i] == '+' || password[i] == '=' || password[i] == ',' || password[i] == '<' || password[i] == '.' || password[i] == '>' || password[i] == '/' || password[i] == '?' || password[i] == '[' || password[i] == '{' || password[i] == ']' || password[i] == '}' || password[i] == ';' || password[i] == ':' || password[i] == '"' || password[i] == '|')
+                    {
+                        special = true;
+                        if (password.Any(char.IsPunctuation))
+                        {
+                            special = true;
+                            if (password.Length >= 8)
+                            {
+                                minLength = true;
+                                if (password.Any(char.IsWhiteSpace))
+                                {
+                                    whiteSpace = false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (capital == true && number == true && special == true && minLength == true && whiteSpace == true)
+        {
+            passwordValid = true;
+            
+        }
+        else
+        {
+
+            if (minLength == false)
+            {
+                
+            }
+            else if (whiteSpace == false)
+            {
+                
+            }
+            else if (capital == false || number == false || special == false)
+            {
+               
+            }
+        }
+
         return error;
 
     }
