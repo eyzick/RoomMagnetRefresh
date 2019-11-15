@@ -34,7 +34,9 @@
 
   $('.btnPrevious').click(function(){
   $('.nav-tabs > .active').prev('li').find('a').trigger('click');});
+
     </script>
+
        
   <div class="container">
 
@@ -43,7 +45,9 @@
       <div class="container">
        
      <fieldset>
-          <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-danger pull-right" OnClick="btnSave_Click" />
+       <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-danger pull-right" OnClick="btnSave_Click" />
+       <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="Button1_Click" class="btn btn-info pull-right" CausesValidation ="false" />
+
       <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#step1">Step 1</a></li>
     <li><a data-toggle="tab" href="#step2">Step 2</a></li>
@@ -165,8 +169,7 @@
                   </div>
                   <br /><br /><br />
                   <asp:Button ID="btnNext" runat="server" Text="Next Step" class="btn btn-primary pull-right" OnClick="btnNext_Click" />
-                          <a class="btn btn-primary" >Next</a>
-
+               
               </div>
               <div id="step2" class="tab-pane fade">
                   <h3>Step 2</h3>
@@ -272,13 +275,13 @@
       <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-4">
-              <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" CausesValidation ="false" />
           </div>
       </div>
       <br />
       <div class="row">
       </div>
   </div>
+
 
 
 </asp:Content>
