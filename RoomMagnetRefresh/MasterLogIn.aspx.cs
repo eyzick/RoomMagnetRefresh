@@ -81,4 +81,10 @@ public partial class _Default : System.Web.UI.Page
             }
         }
     }
+
+    protected void btnPopulate_Click(object sender, EventArgs e)
+    {
+        tbEmail.Text = "testingemail@gmail.com";
+        tbPassword.Text = "Password123!";
+    }
 }

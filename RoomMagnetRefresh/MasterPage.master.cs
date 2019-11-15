@@ -18,4 +18,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
         Session["tempHost"] = tempHost;
         Session["tempProperty"] = tempProperty;
     }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("MasterLogin.aspx");
+    }
 }

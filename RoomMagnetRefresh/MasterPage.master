@@ -9,9 +9,13 @@
     <form id="form1" runat="server">
     <asp:ContentPlaceHolder id="head" runat="server">
         <div class="row">
-            <div class="col-sm-3"><div class="centerimg"><img src="Content/img/logo-roommagnet.png" /></div></div>
-            
-
+            <div class="col-sm-6">
+                <div class="centerimg">
+                    <img class="centerimg" src="Content/img/logo-roommagnet.png" /></div>
+            </div>
+            <div class="col-sm-6">
+                <asp:Button id="btnLogin" runat="server" Text="Log In" OnClick="btnLogin_Click" CausesValidation="false" />
+            </div>
         </div>
         
     </asp:ContentPlaceHolder>

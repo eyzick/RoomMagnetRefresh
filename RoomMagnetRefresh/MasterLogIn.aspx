@@ -13,6 +13,7 @@
         </div>
         <div class="form-group">
             <asp:Button id="btnLogIn" runat="server" Text="Log In" CssClass="btn-primary" OnClick="btnLogIn_Click" />
+            <asp:Button  id="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
         </div>
     </div>
 </asp:Content>
