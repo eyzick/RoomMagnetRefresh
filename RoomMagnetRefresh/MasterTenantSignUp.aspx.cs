@@ -154,16 +154,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else if (validated ==8)
         {
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your password must have at least 8 characters');", true);
-        }
-        else if (validated == 9)
-        {
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your password cannot have space');", true);
-        }
-        else if (validated == 10)
-        {
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your password does not inclueded number, capital letter or special character');", true);
-            
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Please enter a valid password');", true);
         }
 
     }
@@ -330,7 +321,7 @@ public partial class _Default : System.Web.UI.Page
         Boolean number = false;
         Boolean special = false;
         Boolean whiteSpace = true;
-        Boolean minLength = false;
+        Boolean minLength = true;
         Boolean passwordValid = false;
 
         if (password.Any(char.IsUpper))
@@ -347,12 +338,15 @@ public partial class _Default : System.Web.UI.Page
                         if (password.Any(char.IsPunctuation))
                         {
                             special = true;
-                            if (password.Length >= 8)
+                            
+                            if (password.Length < 8)
                             {
-                                minLength = true;
+                                minLength = false;
+                                
                                 if (password.Any(char.IsWhiteSpace))
                                 {
                                     whiteSpace = false;
+                                   
                                 }
                             }
                         }
@@ -364,23 +358,11 @@ public partial class _Default : System.Web.UI.Page
         if (capital == true && number == true && special == true && minLength == true && whiteSpace == true)
         {
             passwordValid = true;
-            
+            error = 0;
         }
         else
         {
-
-            if (minLength == false)
-            {
-                
-            }
-            else if (whiteSpace == false)
-            {
-                
-            }
-            else if (capital == false || number == false || special == false)
-            {
-               
-            }
+                error = 8;            
         }
 
         return error;
