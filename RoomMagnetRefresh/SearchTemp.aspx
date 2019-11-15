@@ -150,7 +150,7 @@
                           
                           <div class="col-md-5" style="padding-top:10px">
                               <p><a href="#" class="btn btn-primary ">Description</a></p>
-                              <p><a href="#" class="btn btn-primary ">Add to Favriot</a></p>
+                              <p><a href="#" class="btn btn-primary ">Add to Favorites</a></p>
                           </div>
                           
                         </div>

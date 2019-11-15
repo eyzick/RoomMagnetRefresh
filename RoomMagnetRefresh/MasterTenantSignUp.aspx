@@ -58,20 +58,24 @@
                   <p>Tell us about yourself</p>
                   <div class="row">
                       <div class="col-md-3">
+                          <label for="tbFirstName">First Name</label>
                           <asp:TextBox ID="tbFirstName" runat="server" placeholder="First Name" CssClass="form-control" OnTextChanged="tbFirstName_TextChanged"></asp:TextBox>
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbFirstName" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Please enter your first name</asp:RequiredFieldValidator>
                           <br />
                       </div>
                       <div class="col-md-3">
+                          <label for="tbLastName">Last Name</label>
                           <asp:TextBox ID="tbLastName" runat="server" placeholder="Last Name" CssClass="form-control"></asp:TextBox>
                           
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbLastName" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Please enter your last name</asp:RequiredFieldValidator>
                           </div>
                       <div class="col-md-3">
+                          <label for="tbDOB">Date of Birth</label>
                           <asp:TextBox ID="tbDOB" runat="server" type="date" placeholder="Date of Birth" CssClass="form-control"></asp:TextBox>
                           <br />
                       </div>
                       <div class="col-md-3">
+                          <label for="tbPhoneNumber">Phone Number</label>
     <asp:TextBox runat="server" placeholder="Phone Number" ID="tbPhoneNumber" CssClass="form-control" TabIndex="3" MaxLength="10"></asp:TextBox>
                           
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbPhoneNumber" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Please enter your phone number</asp:RequiredFieldValidator>
@@ -82,18 +86,21 @@
                   <br />
                   <div class="row">
                       <div class="col-md-3">
+                          <label for "tbAddress">Street Address</label>
                           <asp:TextBox ID="tbAddress" runat="server" placeholder="Home Address" CssClass="form-control"></asp:TextBox>
                           
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="tbAddress" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Please enter your street address</asp:RequiredFieldValidator>
                           <br />
                       </div>
                       <div class="col-md-3">
+                          <label for="tbCity">City</label>
                           <asp:TextBox ID="tbCity" runat="server" placeholder="City" CssClass="form-control"></asp:TextBox>
                           
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="tbCity" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Please enter your city name</asp:RequiredFieldValidator>
                           <br />
                       </div>
                       <div class="col-md-3">
+                          <label for="ddState">State</label>
                           <asp:DropDownList ID="ddState" runat="server" CssClass="form-control">
                               <asp:ListItem>AL</asp:ListItem>
                               <asp:ListItem>AK</asp:ListItem>
@@ -149,6 +156,7 @@
                           <br />
                       </div>
                       <div class="col-md-3">
+                          <label for="tbZip">Zipcode</label>
                           <asp:TextBox ID="tbZip" runat="server" placeholder="Zipcode" CssClass="form-control" MaxLength="5"></asp:TextBox>
                           
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="tbPhoneNumber" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Please enter your zip code</asp:RequiredFieldValidator>
@@ -228,22 +236,26 @@
                   <p>Thanks for filling out our survey! Let's finish setting up your account!</p>
                   <div class="row">
                       <div class="col-md-6">
-                          <asp:TextBox ID="tbEmail" runat="server" placeholder="Email Address" TextMode="Email"></asp:TextBox>
+                          <label for="tbEmail">Email Address</label>
+                          <asp:TextBox ID="tbEmail" runat="server" placeholder="Email Address" TextMode="Email" CssClass="form-control"></asp:TextBox>
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="tbEmail" runat="server" ErrorMessage="Please enter your email address" ForeColor="Red"></asp:RequiredFieldValidator>
                       </div><br />
                       <div class="col-md-6">
-                          <asp:TextBox ID="tbEmailConfirm" runat="server" placeholder="Confirm Email"></asp:TextBox>
+                          <label for="tbEmailConfirm">Confirm Email</label>
+                          <asp:TextBox ID="tbEmailConfirm" runat="server" placeholder="Confirm Email" CssClass="form-control"></asp:TextBox>
                           <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="tbEmail" ErrorMessage="email address does not match" ForeColor="Red" ControlToValidate="tbEmailConfirm"></asp:CompareValidator>
                       </div>
                   </div>
                   <br />
                   <div class="row">
                       <div class="col-md-6">
-                          <asp:TextBox ID="tbPassword" runat="server" placeholder="Password" type="password"></asp:TextBox>
+                          <label for="tbPassword">Password</label>
+                          <asp:TextBox ID="tbPassword" runat="server" placeholder="Password" type="password" CssClass="form-control"></asp:TextBox>
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ControlToValidate="tbPassword" runat="server" ErrorMessage="Please enter your password" ForeColor="Red"></asp:RequiredFieldValidator>
                       </div>
                       <div class="col-md-6">
-                          <asp:TextBox ID="tbPasswordConfirm" runat="server" placeholder="Confirm Password" type="password"></asp:TextBox>
+                          <label for="tbPasswordConfirm">Confirm Password</label>
+                          <asp:TextBox ID="tbPasswordConfirm" runat="server" placeholder="Confirm Password" type="password" CssClass="form-control"></asp:TextBox>
                           <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="tbPassword" ErrorMessage="Password does not match" ForeColor="Red" ControlToValidate="tbPasswordConfirm"></asp:CompareValidator>
                       </div>
                   </div>

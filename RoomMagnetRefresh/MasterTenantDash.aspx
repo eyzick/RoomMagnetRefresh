@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-sm-2"><h4>Your Profile</h4></div>
         <div class="col-sm-2"></div>
-        <div class="col-sm-2"><asp:Button ID="btnEditProfile" runat="server" Text="Edit Profile" /></div>
+        <div class="col-sm-2"><asp:Button ID="btnEditProfile" runat="server" Text="Search Properties" OnClick="btnEditProfile_Click" /></div>
 
         <div class="col-sm-6"><h4>Your Property:</h4></div>
         

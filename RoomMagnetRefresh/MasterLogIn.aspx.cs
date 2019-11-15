@@ -38,15 +38,14 @@ public partial class _Default : System.Web.UI.Page
                 string storedHash = reader["PasswordHash"].ToString(); // store the database password into this varable
                 if (PasswordHash.ValidatePassword(tbPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                 {
-                    Label1.Text = "Success!";
+                   
                     success = true;
                 }
-                else
-                    Label1.Text = "Password is wrong.";
+                
             }
         }
         else // if the username does not exist, it will show failure.
-            Label1.Text = "Login failed";
+            
         sc.Close();
         if (success == true)
         {
@@ -60,7 +59,7 @@ public partial class _Default : System.Web.UI.Page
             matchID.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Email", tbEmail.Text));
             id = (Int32)matchID.ExecuteScalar();
             Session["globalID"] = id;
-            Label1.Text = "Success! ID is: " + id;
+           
 
             System.Data.SqlClient.SqlCommand type = new System.Data.SqlClient.SqlCommand();
             type.Connection = sc;
