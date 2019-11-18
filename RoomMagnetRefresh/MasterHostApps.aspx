@@ -6,7 +6,7 @@
         {
             border: 1px solid #ccc;
             border-collapse: collapse;
-            width: 400px;
+            width: 800px;
         }
     </style>
 
@@ -17,24 +17,23 @@
                     <thead>
                         <tr>
                             <th scope="col">Applicant</th>
+                            <th scope="col">Application</th>
                             <th scope="col">Date</th>
                             <th scope="col">Accept/Decline</th>
                         </tr>
                     </thead>
                     <tr>
-                        <td>First Name:
-                            <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                        </td>   
-                        <td>ApplicationDate:
-                            <asp:Label ID="ApplicationDateLabel" runat="server" Text='<%# Eval("ApplicationDate") %>' />
+                        <td>Name:
+                            <asp:Label ID="FirstNameLabel" runat="server" Text='<%# String.Concat(Eval("FirstName"), " ", Eval("LastName"))%>' />
+                        </td>
+                        <td>
+                            <asp:Button ID="Button1" runat="server" Text="View Application" OnClick="Button1_Click"/>
+                        </td>
+                        <td>
+                            <asp:Label ID="ApplicationDateLabel" runat="server" Text='<%# Eval("ApplicationDate", "{0:MM/dd/yyyy}") %>' />
                         </td>
                         <td>
                             <asp:CheckBox ID="cbDecision" runat="server"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Last Name:
-                                <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
                         </td>
                     </tr>
                 </table>

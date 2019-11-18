@@ -23,7 +23,7 @@ public partial class MasterApplication : System.Web.UI.Page
         insert.Connection = sc;
         insert.CommandText = "Insert into [dbo].[Application] values (@ApplicationDate, @TenantID, @AccomodationID, @ModifiedDate)";
         insert.Parameters.Add(new SqlParameter("@ApplicationDate", DateTime.Today));
-        insert.Parameters.Add(new SqlParameter("@TenantID", 35));
+        insert.Parameters.Add(new SqlParameter("@TenantID", 77));
         insert.Parameters.Add(new SqlParameter("@AccomodationID", 42));
         insert.Parameters.Add(new SqlParameter("@ModifiedDate", DateTime.Today));
 
