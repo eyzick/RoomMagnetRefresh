@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MasterHostProperty.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css"/>
+
     <div class="container">
         <div class="row">
              <div class="col-md-4"><h2>Tell us about your property</h2></div>
