@@ -2,17 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
    
-    <link href="Content/bootstrap.css" rel="stylesheet" />
-    <link href="Content/bootstrap-grid.css" rel="stylesheet" />
-    <script src="Scripts/bootstrap.js"></script>
-    <script src="Scripts/jquery-3.0.0.js"></script>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
+
 
     
-    <title></title>
+   
 <style>
     .form-control {
         margin-top:1px;
