@@ -38,13 +38,15 @@ public partial class _Default : System.Web.UI.Page
                 string storedHash = reader["PasswordHash"].ToString(); // store the database password into this varable
                 if (PasswordHash.ValidatePassword(tbPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                 {
-                   
+
                     success = true;
                 }
-                
+
             }
         }
         else // if the username does not exist, it will show failure.
+        { 
+        }
             
         sc.Close();
         if (success == true)
@@ -73,7 +75,7 @@ public partial class _Default : System.Web.UI.Page
                     Response.Redirect("MasterTenantDash.aspx");
                     break;
                 case "h":
-                    Response.Redirect("MasterHostDashboard.aspx");
+                    Response.Redirect("MasterHostDash.aspx");
                     break;
                 case "a":
                     Response.Redirect("MasterAdminDashboard.aspx");

@@ -144,13 +144,14 @@
                           <div class="col-7" style="text-align:center">
                             <h5><%#Eval("Capacity") %> "1 bedroom 1 bath"</h5>
                              <h5><%#Eval("Zip") %>Northen Va,2280</h5>
-                              <h5><strong>$<%#Eval("Price") %> per month</strong></h5>
+                              <h5><strong><%#Eval("Price", "{0:C}").ToString()%> per month</strong></h5>
 
                           </div>
                           
                           <div class="col-md-5" style="padding-top:10px">
                               <p><a href="#" class="btn btn-primary ">Description</a></p>
                               <p><a href="#" class="btn btn-primary ">Add to Favorites</a></p>
+                              <p><a href="MasterApplication.aspx" class="btn btn-primary ">Apply</a></p>
                           </div>
                           
                         </div>
